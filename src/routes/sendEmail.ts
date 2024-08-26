@@ -17,7 +17,7 @@ router.post('/send', async (req: Request, res: Response) => {
             html
         };
 
-        if (!to || !from || !subject || !name) {
+        if (!to || !from || !subject || !text) {
             throw new Error(E_BAD_REQUEST);
         }
 
