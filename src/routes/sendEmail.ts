@@ -2,18 +2,22 @@ import { Router, Request, Response } from 'express';
 import { MailService } from '../services/MailService';
 import Mail from 'nodemailer/lib/mailer';
 import { E_BAD_REQUEST, errorMessage } from '../helpers/errors';
+import { Email } from '../interface/Email';
 
 const router = Router();
 router.post('/send', async (req: Request, res: Response) => {
     try {
-        const { to, subject, text } = req.body as Mail.Options;
+        const { to, subject, text, from, name, html } = req.body as Email;
         const mailOptions = {
             to,
+            from,
+            name,
             subject,
-            text
+            text,
+            html
         };
 
-        if (!to || !subject || !text) {
+        if (!to || !from || !subject || !name) {
             throw new Error(E_BAD_REQUEST);
         }
 

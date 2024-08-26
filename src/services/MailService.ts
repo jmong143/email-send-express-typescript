@@ -1,5 +1,6 @@
 import { createTransport, Transporter } from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
+import { Email } from '../interface/Email';
 
 export class MailService {
     private transporter: Transporter;
@@ -15,11 +16,8 @@ export class MailService {
         });
     }
 
-    public async send(options: Mail.Options): Promise<Mail.Options> {
-        await this.transporter.sendMail({
-            from: process.env.EMAIL_USERNAME,
-            ...options
-        });
+    public async send(options: Email): Promise<Mail.Options> {
+        await this.transporter.sendMail(options);
         return options;
     }
 }

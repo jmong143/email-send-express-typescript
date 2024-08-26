@@ -32,9 +32,12 @@ Note: For gmail smtp, make sure to create and set app password. See reference:
 curl --location 'http://{{baseUrl}}:{{port}}/email/send' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "to": "sampletest@mail.com",
-    "subject": "Sample email sending",
-    "text": "Lorem ipsum dolor ipset...."
+    "to": "jhonlance.37@gmail.com",
+    "from": "test@mail.com",
+    "subject": "Test email 002",
+    
+    "html": "<div>Hi This is a html content</div>",
+    "name": "John Doe"
 }'
 ````
 
