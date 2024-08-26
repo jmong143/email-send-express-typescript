@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@types/nodemailer": "^6.4.15",
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.4.0",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "watch": " npx tsc --watch",
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js"
+  }
+}
